@@ -2,6 +2,8 @@ var currDay = document.querySelector("#currentDay")
 var todaysDate = moment().format("MM/DD/YYYY");
 var startTime = new Date().getHours()+ ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
 var localData = window.localStorage
+var allP = document.getElementsByClassName("form-control col-9 textBox")
+var currHour = new Date().getHours()
 
 
 currDay.innerHTML = "Current time & Date: " + todaysDate + "  " + startTime
@@ -10,9 +12,10 @@ var timeUpdate = setInterval(() => {
     
     var dt = new Date();
     var times = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    currHour = dt.getHours()
+    colorCode()
     currDay.innerHTML = "Current time & Date: " + todaysDate + "  " + times
 }, 1000);
-
 
 function taskSubmitted(button){
     if (button.parentNode.children[1].value != ""){
@@ -22,7 +25,85 @@ function taskSubmitted(button){
     }
 }
 
-
+function colorCode(){
+    switch (currHour){
+        case 9:
+            allP[0].style.backgroundColor = "red"
+            for (i = 1; i < 9; i++){
+                allP[i].style.backgroundColor = 'green'
+            }
+            break
+        case 10:
+            allP[0].style.backgroundColor = "grey"
+            allP[1].style.backgroundColor = "red"
+            for (i = 2; i < 9; i++){
+                allP[i].style.backgroundColor = 'green'
+            }
+            break
+        case 11:
+            allP[2].style.backgroundColor = "red"
+            for (i = 0; i < 2; i++){
+                allP[i].style.backgroundColor = 'grey'
+            }
+            for (i = 3; i < 9; i++){
+                allP[i].style.backgroundColor = 'green'
+            }
+            break
+        case 12:
+            allP[3].style.backgroundColor = "red"
+            for (i = 0; i < 3; i++){
+                allP[i].style.backgroundColor = 'grey'
+            }
+            for (i = 4; i < 9; i++){
+                allP[i].style.backgroundColor = 'green'
+            }
+            break
+        case 13:
+            allP[4].style.backgroundColor = "red"
+            for (i = 0; i < 4; i++){
+                allP[i].style.backgroundColor = 'grey'
+            }
+            for (i = 5; i < 9; i++){
+                allP[i].style.backgroundColor = 'green'
+            }
+            break
+        case 14:
+            allP[5].style.backgroundColor = "red"
+            for (i = 0; i < 5; i++){
+                allP[i].style.backgroundColor = 'grey'
+            }
+            for (i = 6; i < 9; i++){
+                allP[i].style.backgroundColor = 'green'
+            }
+            break
+        case 15:
+            allP[6].style.backgroundColor = "red"
+            for (i = 0; i < 6; i++){
+                allP[i].style.backgroundColor = 'grey'
+            }
+            for (i = 7; i < 9; i++){
+                allP[i].style.backgroundColor = 'green'
+            }
+            break
+        case 16:
+            allP[7].style.backgroundColor = "red"
+            for (i = 0; i < 7; i++){
+                allP[i].style.backgroundColor = 'grey'
+            }
+            allP[8].style.backgroundColor = "green"
+            break
+        case 17:
+            allP[8].style.backgroundColor = "red"
+            for (i = 0; i < 8; i++){
+                allP[i].style.backgroundColor = 'grey'
+            }
+        break
+        case 18:
+            for (i = 0; i < 9; i++){
+                allP[i].style.backgroundColor = 'grey'
+            }
+    }
+}
 
 function getData(){
     var c = 8 //for getting the key in local storage
@@ -33,7 +114,7 @@ function getData(){
         c++
 
         if (localData.getItem(c +"am") != null || localData.getItem(c + "pm") != null){
-           var allP = document.getElementsByClassName("form-control col-9 textBox")
+           
            var pTag = localData.getItem(c +"am")
            if (pTag == null){
                
@@ -67,14 +148,13 @@ function getData(){
                 case 12:
                     allP[3].value = pTag 
                     break
-            }
-           
+            }         
         }
         if(c == 5){
             break
         }
     }
+    colorCode()
 }
-
 
 getData()
