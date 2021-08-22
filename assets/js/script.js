@@ -5,15 +5,17 @@ var localData = window.localStorage
 var allP = document.getElementsByClassName("form-control col-9 textBox")
 var currHour = new Date().getHours()
 
-
-currDay.innerHTML = "Current time & Date: " + todaysDate + "  " + startTime
+currDay.innerHTML = "Current time & Date: " + todaysDate + "  " + startTime //to make sure the curr time and day is displayed before the timer starts
 
 var timeUpdate = setInterval(() => {
     
     var dt = new Date();
     var times = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    var oldHour = currHour //caches the old time to check if the hour changes
     currHour = dt.getHours()
-    colorCode()
+    if (oldHour != currHour){ //if the hour does change then it changes the color accordingly
+        colorCode()
+    }
     currDay.innerHTML = "Current time & Date: " + todaysDate + "  " + times
 }, 1000);
 
@@ -27,6 +29,7 @@ function taskSubmitted(button){
 
 function colorCode(){
     switch (currHour){
+        //changes the color based on the time /grey for hours before it, red for curr hour, green for future hours/
         case 9:
             allP[0].style.backgroundColor = "red"
             for (i = 1; i < 9; i++){
@@ -121,6 +124,7 @@ function getData(){
                pTag = localData.getItem(c + "pm")
            }
            switch (c){
+               //sets value for the corrisponding local storage value
                case 1:
                    allP[4].value = pTag
                    break
