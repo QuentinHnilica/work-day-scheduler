@@ -28,83 +28,86 @@ function taskSubmitted(button){
 }
 
 function colorCode(){
-    switch (currHour){
-        //changes the color based on the time /grey for hours before it, red for curr hour, green for future hours/
-        case 9:
-            allP[0].style.backgroundColor = "red"
-            for (i = 1; i < 9; i++){
-                allP[i].style.backgroundColor = 'green'
-            }
+    if (currHour > 17){ //if its later than 5pm turn all of them grey
+        for (i = 0; i < 9; i++){
+            allP[i].style.backgroundColor = 'grey'
+        }
+    }
+    else{  
+        switch (currHour){
+            //changes the color based on the time /grey for hours before it, red for curr hour, green for future hours/
+            case 9:
+                allP[0].style.backgroundColor = "red"
+                for (i = 1; i < 9; i++){
+                    allP[i].style.backgroundColor = 'green'
+                }
+                break
+            case 10:
+                allP[0].style.backgroundColor = "grey"
+                allP[1].style.backgroundColor = "red"
+                for (i = 2; i < 9; i++){
+                    allP[i].style.backgroundColor = 'green'
+                }
+                break
+            case 11:
+                allP[2].style.backgroundColor = "red"
+                for (i = 0; i < 2; i++){
+                    allP[i].style.backgroundColor = 'grey'
+                }
+                for (i = 3; i < 9; i++){
+                    allP[i].style.backgroundColor = 'green'
+                }
+                break
+            case 12:
+                allP[3].style.backgroundColor = "red"
+                for (i = 0; i < 3; i++){
+                    allP[i].style.backgroundColor = 'grey'
+                }
+                for (i = 4; i < 9; i++){
+                    allP[i].style.backgroundColor = 'green'
+                }
+                break
+            case 13:
+                allP[4].style.backgroundColor = "red"
+                for (i = 0; i < 4; i++){
+                    allP[i].style.backgroundColor = 'grey'
+                }
+                for (i = 5; i < 9; i++){
+                    allP[i].style.backgroundColor = 'green'
+                }
+                break
+            case 14:
+                allP[5].style.backgroundColor = "red"
+                for (i = 0; i < 5; i++){
+                    allP[i].style.backgroundColor = 'grey'
+                }
+                for (i = 6; i < 9; i++){
+                    allP[i].style.backgroundColor = 'green'
+                }
+                break
+            case 15:
+                allP[6].style.backgroundColor = "red"
+                for (i = 0; i < 6; i++){
+                    allP[i].style.backgroundColor = 'grey'
+                }
+                for (i = 7; i < 9; i++){
+                    allP[i].style.backgroundColor = 'green'
+                }
+                break
+            case 16:
+                allP[7].style.backgroundColor = "red"
+                for (i = 0; i < 7; i++){
+                    allP[i].style.backgroundColor = 'grey'
+                }
+                allP[8].style.backgroundColor = "green"
+                break
+            case 17:
+                allP[8].style.backgroundColor = "red"
+                for (i = 0; i < 8; i++){
+                    allP[i].style.backgroundColor = 'grey'
+                }
             break
-        case 10:
-            allP[0].style.backgroundColor = "grey"
-            allP[1].style.backgroundColor = "red"
-            for (i = 2; i < 9; i++){
-                allP[i].style.backgroundColor = 'green'
-            }
-            break
-        case 11:
-            allP[2].style.backgroundColor = "red"
-            for (i = 0; i < 2; i++){
-                allP[i].style.backgroundColor = 'grey'
-            }
-            for (i = 3; i < 9; i++){
-                allP[i].style.backgroundColor = 'green'
-            }
-            break
-        case 12:
-            allP[3].style.backgroundColor = "red"
-            for (i = 0; i < 3; i++){
-                allP[i].style.backgroundColor = 'grey'
-            }
-            for (i = 4; i < 9; i++){
-                allP[i].style.backgroundColor = 'green'
-            }
-            break
-        case 13:
-            allP[4].style.backgroundColor = "red"
-            for (i = 0; i < 4; i++){
-                allP[i].style.backgroundColor = 'grey'
-            }
-            for (i = 5; i < 9; i++){
-                allP[i].style.backgroundColor = 'green'
-            }
-            break
-        case 14:
-            allP[5].style.backgroundColor = "red"
-            for (i = 0; i < 5; i++){
-                allP[i].style.backgroundColor = 'grey'
-            }
-            for (i = 6; i < 9; i++){
-                allP[i].style.backgroundColor = 'green'
-            }
-            break
-        case 15:
-            allP[6].style.backgroundColor = "red"
-            for (i = 0; i < 6; i++){
-                allP[i].style.backgroundColor = 'grey'
-            }
-            for (i = 7; i < 9; i++){
-                allP[i].style.backgroundColor = 'green'
-            }
-            break
-        case 16:
-            allP[7].style.backgroundColor = "red"
-            for (i = 0; i < 7; i++){
-                allP[i].style.backgroundColor = 'grey'
-            }
-            allP[8].style.backgroundColor = "green"
-            break
-        case 17:
-            allP[8].style.backgroundColor = "red"
-            for (i = 0; i < 8; i++){
-                allP[i].style.backgroundColor = 'grey'
-            }
-        break
-        case 18:
-            for (i = 0; i < 9; i++){
-                allP[i].style.backgroundColor = 'grey'
-            }
+        }
     }
 }
 
