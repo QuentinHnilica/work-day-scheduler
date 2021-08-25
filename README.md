@@ -10,7 +10,7 @@ Week 5 HomeWork Assignment
 ![image](Work-Day-Scheduler.png)
 
 ## Design 
-
+- Used bootstrap for styling the page.
 
 ## Features
 - All inputed data will be saved
